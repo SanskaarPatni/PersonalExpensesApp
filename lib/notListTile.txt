@@ -1,0 +1,51 @@
+Card(
+                  child: Row(
+                    children: <Widget>[
+                      Container(
+                        padding: EdgeInsets.all(10),
+                        margin: EdgeInsets.symmetric(
+                          vertical: 10,
+                          horizontal: 15,
+                        ),
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            color: Theme.of(context).primaryColorDark,
+                            width: 2,
+                          ),
+                        ),
+                        child: Text(
+                          //String interpolation  ${} ..(call toString() by it self)
+                          // \$ to add dollar sign
+                          '\$${transactions[index].amount.toStringAsFixed(2)}',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20,
+                            color: Theme.of(context).primaryColorDark,
+                          ),
+                        ),
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            transactions[index].title,
+                            style: Theme.of(context).textTheme.title,
+                            //TextStyle(
+                            //color: Colors.black,
+                            //fontSize: 16,
+                            //fontWeight: FontWeight.bold,
+                            //),
+                          ),
+                          Text(
+                            //SpecialConstructors
+                            DateFormat.yMMMMd()
+                                .format(transactions[index].date),
+                            style: TextStyle(
+                              color: Colors.grey,
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                );
